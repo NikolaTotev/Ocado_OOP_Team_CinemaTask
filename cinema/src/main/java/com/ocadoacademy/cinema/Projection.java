@@ -3,11 +3,11 @@ package com.ocadoacademy.cinema;
 import java.time.LocalTime;
 import java.util.List;
 
-public class Projections {
+public class Projection {
     private final boolean[] reservations;
     private final ViewingRoom room;
     private final Movie movie;
-    private final LocalTime time;
+    private final LocalTime startingTime;
 
     private boolean areSeatsAvailable(List<Integer> seats) {
         for (int current : seats) {
@@ -34,13 +34,13 @@ public class Projections {
         return !time.isBefore(startingTime) && !time.isAfter(endingTime);
     }
 
-    public Projections(ViewingRoom room, Movie movie, LocalTime time) {
+    public Projection(ViewingRoom room, Movie movie, LocalTime time) {
         if (!isTimeValid(time)) {
             throw new IllegalArgumentException("Time must be in the interval 16:00:00 - 23:50:00");
         }
         this.room = room;
         this.movie = movie;
-        this.time = time;
+        this.startingTime = time;
         this.reservations = new boolean[room.getSeats()];
     }
 
@@ -60,9 +60,24 @@ public class Projections {
     public String toString() {
         String result = "Movie: " + movie.getName() + " \n"
                 + "Viewing room: " + room.getRoomNumber() + "\n"
-                + "Time: " + time + "\n"
+                + "Time: " + startingTime + "\n"
                 + "Taken seats: " + printTakenSeats() + "\n";
         return result;
     }
 
+    public boolean[] getReservations() {
+        return reservations;
+    }
+
+    public ViewingRoom getRoom() {
+        return room;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public LocalTime getStartingTime() {
+        return startingTime;
+    }
 }
