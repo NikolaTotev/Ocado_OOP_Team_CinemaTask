@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class Movie {
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Movie {
     private final String name;
     private final Genre genre;
     private final int lengthOfMovie; //in minutes
@@ -90,4 +96,5 @@ public class Movie {
         Movie movie = (Movie) o;
         return lengthOfMovie == movie.lengthOfMovie && Objects.equals(name, movie.name) && genre == movie.genre && Objects.equals(actors, movie.actors) && Objects.equals(director, movie.director);
     }
+
 }
