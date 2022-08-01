@@ -1,5 +1,8 @@
 package com.ocadoacademy.cinema;
 
+
+public class Movie {
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -74,4 +77,5 @@ public class Movie {
             throw new IllegalArgumentException("Invalid genre data");
         }
     }
+
 }

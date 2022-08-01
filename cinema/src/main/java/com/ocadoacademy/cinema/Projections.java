@@ -1,5 +1,11 @@
 package com.ocadoacademy.cinema;
 
+
+public class Projections {
+    private boolean[] reservations;
+    private ViewingRoom room;
+    private Movie
+
 import java.time.LocalTime;
 import java.util.List;
 
@@ -64,5 +70,6 @@ public class Projections {
                 + "Taken seats: " + printTakenSeats() + "\n";
         return result;
     }
+
 
 }
