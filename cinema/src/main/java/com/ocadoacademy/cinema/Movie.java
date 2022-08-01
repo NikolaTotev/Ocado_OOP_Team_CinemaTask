@@ -1,19 +1,23 @@
 package com.ocadoacademy.cinema;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Movie {
     private final String name;
     private final Genre genre;
     private final int lengthOfMovie; //in minutes
-    private final String[] actors;
+    private final List<String> actors;
     private final String director;
 
-    public Movie(String name, Genre genre, int lengthOfMovie, String[] actors, String director) throws IllegalArgumentException {
+    public Movie(String name, Genre genre, int lengthOfMovie, List<String> actors, String director) throws IllegalArgumentException {
         assertMovieInputData(name, genre, lengthOfMovie, actors, director);
 
         this.name = name;
         this.genre = genre;
         this.lengthOfMovie = lengthOfMovie;
-        this.actors = actors;
+        this.actors = new ArrayList<>(actors);
         this.director = director;
     }
 
@@ -40,7 +44,7 @@ public class Movie {
         return lengthOfMovie;
     }
 
-    private void assertMovieInputData(String name, Genre genre, int lengthOfMovie, String[] actors, String director) throws IllegalArgumentException {
+    private void assertMovieInputData(String name, Genre genre, int lengthOfMovie, List<String> actors, String director) throws IllegalArgumentException {
         assertStringData(name);
         assertActors(actors);
         assertStringData(director);
@@ -53,7 +57,7 @@ public class Movie {
         }
     }
 
-    private void assertActors(String[] actors) throws IllegalArgumentException {
+    private void assertActors(List<String> actors) throws IllegalArgumentException {
         if (actors == null) {
             throw new IllegalArgumentException("Actor data is invalid");
         }
