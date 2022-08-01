@@ -80,4 +80,14 @@ public class Projection {
     public LocalTime getStartingTime() {
         return startingTime;
     }
+
+    public int getCountOfReservedSeats(){
+        int count = 0;
+        for(boolean current : reservations){
+            if(current){
+                count++;
+            }
+        }
+        return count;
+    }
 }
