@@ -70,11 +70,6 @@ public class Movie {
             throw new IllegalArgumentException("Invalid genre data");
         }
     }
-
-    public String getName() {
-        return name;
-    }
-
     public String getDirector() {
         return director;
     }

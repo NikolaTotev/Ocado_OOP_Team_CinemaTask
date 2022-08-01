@@ -63,7 +63,11 @@ public class Cinema {
     
 
     public String listProjections() {
-
+        String result = "";
+        for(Movie current : movies){
+            result+= listProjectionsForMovie(current);
+        }
+        return result;
     }
 
 }
