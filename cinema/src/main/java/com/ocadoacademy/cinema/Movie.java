@@ -4,10 +4,10 @@ public class Movie {
     private final String name;
     private final Genre genre;
     private final int lengthOfMovie; //in minutes
-    private final String actors;
+    private final String[] actors;
     private final String director;
 
-    public Movie(String name, Genre genre, int lengthOfMovie, String actors, String director) throws IllegalArgumentException {
+    public Movie(String name, Genre genre, int lengthOfMovie, String[] actors, String director) throws IllegalArgumentException {
         assertMovieInputData(name, genre, lengthOfMovie, actors, director);
 
         this.name = name;
@@ -28,6 +28,10 @@ public class Movie {
                 '}';
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Genre getGenre() {
         return genre;
     }
@@ -36,9 +40,9 @@ public class Movie {
         return lengthOfMovie;
     }
 
-    private void assertMovieInputData(String name, Genre genre, int lengthOfMovie, String actors, String director) throws IllegalArgumentException {
+    private void assertMovieInputData(String name, Genre genre, int lengthOfMovie, String[] actors, String director) throws IllegalArgumentException {
         assertStringData(name);
-        assertStringData(actors);
+        assertActors(actors);
         assertStringData(director);
         assertLengthOfMovie(lengthOfMovie);
     }
@@ -46,6 +50,12 @@ public class Movie {
     private void assertStringData(String data) throws IllegalArgumentException {
         if (data == null) {
             throw new IllegalArgumentException("String data is null");
+        }
+    }
+
+    private void assertActors(String[] actors) throws IllegalArgumentException {
+        if (actors == null) {
+            throw new IllegalArgumentException("Actor data is invalid");
         }
     }
 
