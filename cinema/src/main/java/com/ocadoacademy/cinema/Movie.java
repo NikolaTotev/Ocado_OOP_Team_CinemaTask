@@ -1,5 +1,8 @@
 package com.ocadoacademy.cinema;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Movie {
 
@@ -76,6 +79,22 @@ public class Movie {
         if (genre == null) {
             throw new IllegalArgumentException("Invalid genre data");
         }
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public boolean areActorsInMovie(List<String> actors){
+        return this.actors.containsAll(actors);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return lengthOfMovie == movie.lengthOfMovie && Objects.equals(name, movie.name) && genre == movie.genre && Objects.equals(actors, movie.actors) && Objects.equals(director, movie.director);
     }
 
 }
